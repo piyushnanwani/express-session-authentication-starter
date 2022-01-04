@@ -90,3 +90,11 @@ Middleware functions are used to perform the following tasks:
 
 9. HTTP protocols are stateless and therefore we use cookies to store infor related to auth like tokens. So that user does not have to authenticate ( by enterring credentials) on each page refresh/reload. 
   - Set cookie header can be used to add key value pairs to cookie object
+
+10. Session vs cookie
+  - Difference being the places at which their are stored.
+  - Cookie has its data stored in the browser and that browser is going to attach that cookie key value pair to every HTTP request that it does.
+  - A session on the other side will be stored on the server side. So here server side means the express js application. And so express session is going to store a little big bigger types of data. In a cookie you can't put a whole lot of data and it gets very tedious if we are constantly adding more and more data to the cookite that we're attaching to each request. So, it would make sense to put that in a server side session where we can store much larger amounts of data.
+
+11. express-session is a middleware. It can be used to create a sessions object that stores our application's sessions. And we can use `connect-mongo` package to save that to our database.
+- We can access the session object using `request.session` and can add any data or properties to it. eg: storing viewCount of that session.
