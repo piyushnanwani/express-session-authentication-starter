@@ -98,3 +98,20 @@ Middleware functions are used to perform the following tasks:
 
 11. express-session is a middleware. It can be used to create a sessions object that stores our application's sessions. And we can use `connect-mongo` package to save that to our database.
 - We can access the session object using `request.session` and can add any data or properties to it. eg: storing viewCount of that session.
+
+12. Password validation: 
+  1. Step 1: Creation
+    ~~~~ 
+    var passwordHash = hashFunction ( plainTextPassword, salt );
+    ~~~
+   2. Verification 
+   ~~~
+   var passwordHaash = hashFunction ( plainTextPassword, salt );
+
+   var verification = passwordHash === databaseHash
+   ~~~
+
+   - plainTextPassword: user provides password when they register
+   - salt : a cryptographically gernerated pseudorandom number
+   - plaintTextPassword: provided by the user when they login
+   - salt : retrieved from the user's record in the database
